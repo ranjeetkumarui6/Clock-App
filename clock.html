@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3{
+            color: #372f40;
+            font-size: 2.2rem;
+            text-align: center;
+            font-family: verdana;
+            text-shadow: 1px 1px 1px black;
+
+        }
+        h2{
+            font-size: 30px;
+            text-align: center;
+            font-family: sans-serif;
+            color: rgb(26, 111, 140);
+            text-shadow: 1px 1px 1px cyan;
+        }
+        body{
+            background-color: #02737d;
+            margin-top: 15%;
+        }
+        .clock{
+            padding-top: 0.1rem;
+            border: none;
+            outline: none;
+            box-shadow: 0  0 7px 3px black;
+            border-radius: 2rem;
+            align-items: center;
+            margin: 0 auto;
+            width: 400px;
+            height: 150px;
+            background-color: #849fe3;
+        }
+    </style>
+</head>
+<body onload="fun1()">
+    <div class="clock">
+    <h2>Digital Clock</h2>
+    <h3></h3>
+</div>
+
+</body>
+<script type="text/javascript">
+    function fun1(){
+        var d = new Date();
+        var h = d.getHours();
+        var m = d.getMinutes();
+        var s = d.getSeconds();
+        var session="AM";
+        if(h>=12){
+            session="PM";
+        }
+        if(h>12){
+           h= h-12;
+        }
+        h = h < 10 ?"0"+h : h;
+        m = m < 10 ?"0"+m : m;
+        s = s < 10 ?"0"+s : s;
+
+        var time=h + " : " + m + " : " + s + " "+ session;
+
+        document.getElementsByTagName('h3')[0].innerText=time;
+        setTimeout(fun1,1000);
+    }
+</script>
+</html>
